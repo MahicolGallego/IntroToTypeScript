@@ -87,7 +87,8 @@
 // interface Car {
 //   brand: string;
 //   model: string;
-//   year: number;
+//   year?: number;
+//   //si agrego "?" indico que ese atributo puede incluirse o no, opcional
 // }
 // const carOne: Car = {brand: "BMW",
 //   model: "M3 RACING",
@@ -98,6 +99,15 @@
 //Car y retorne un string con la información del carro.
 //Aqui se usa la interface y la instancia de car en la anterior tarea
 // class UtilsCars{
+//   // Contructores con TypeScript
+//   // brand: string;
+//   // model: string;
+//   // year: number;
+//   // constructor(car:Car){
+//   //   this.brand = car.brand
+//   //   this.model = car.model
+//   //   this.year = car.year
+//   // }
 //   static getCarInfo(car: Car): String{
 //     return `Marca: ${car.brand}, Modelo: ${car.model}, Año: ${car.year}`;
 //   }
@@ -122,19 +132,36 @@
 // }
 // Tarea 2: Implementa una funcion que reciba rest parameters y retorne error si almenos uno de los parametros pasados no es del tipo de los
 // dos primeros parametros. Asegurarse que los dos primeros parametros sean del mismo tipo.
-function validateType(parameter1, parameter2, ...resParams) {
-    if (typeof parameter1 !== typeof parameter2) {
-        throw new Error(`Los dos primeros parametros no son del mismo del tipo\n${typeof parameter1}\n${typeof parameter2}`);
-    }
-    for (let param of resParams) {
-        if (typeof param !== typeof parameter1) {
-            throw new Error(`Almenos uno de los parametros restantes no es del mismo del tipo\n${typeof param} !== tipo valido:${typeof parameter1}`);
-        }
-    }
-}
-try {
-    validateType(1, "2", 3, 4, 5, 6);
-}
-catch (error) {
-    console.log(error);
-}
+// function validateType(parameter1: any, parameter2: any, ...resParams: any[]) {
+//   if (typeof parameter1 !== typeof parameter2) {
+//     throw new Error(`Los dos primeros parametros no son del mismo del tipo\n${typeof parameter1}\n${typeof parameter2}`);
+//   }
+//   for (let param of resParams) {
+//     if (typeof param!== typeof parameter1) {
+//       throw new Error(`Almenos uno de los parametros restantes no es del mismo del tipo\n${typeof param} !== tipo valido:${typeof parameter1}`);
+//     }
+//   }
+// }
+// try {
+//   validateType(1, "2", 3, 4, 5, 6);
+// } catch (error) {
+//   console.log(error);
+// }
+/* Tarea 3: Define una funcion que reciba una matriz cuadrada de numeros como parametros y devuelva
+la matriz gira 90 grados en sentido horario. (2 Riwi points) */
+// const matriz:number[][] = [
+//   [0, 1, 2],
+//   [3, 4, 5],
+//   [6, 7, 8],
+// ];
+// function matrizTranspuesta(matriz: number[][]):number[][] {
+//   let matrizTranspuesta:number[][] = matriz.map((e) => e.slice());
+//   for(let i = 0; i < matriz.length; i++){
+//     for(let j = matriz.length -1; j >= 0; j--){
+//       matrizTranspuesta[i][matriz.length - 1 - j] = matriz[j][i];
+//       console.log(matriz[j][i]);
+//     }
+//   }
+//   return matrizTranspuesta;
+// }
+// console.log("Matriz\n", matriz, "\nMatriz transpuesta\n", matrizTranspuesta(matriz))
